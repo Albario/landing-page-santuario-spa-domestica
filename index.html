@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trasforma la tua casa in un'oasi di benessere. Il primo sistema interattivo con radar sensoriale, calcolatori e tracker per creare il tuo santuario spa domestico.">
+    <title>Sanctuary Spa Domestica | Trasforma la Tua Casa in un'Oasi di Benessere</title>
+       <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        :root {
+            --accent: #8a9a5b;
+            --accent-dark: #7a8a4b;
+            --accent-light: #f0f4e8;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-color: #fafaf8;
+            --card-bg: #ffffff;
+            --border: #e5e7eb;
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: var(--bg-color);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f0f4e8 0%, #e8ece0 50%, #fafaf8 100%);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🌿';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            font-size: 20rem;
+            opacity: 0.05;
+            transform: rotate(15deg);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .hero-feature i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            background: var(--accent);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(138, 154, 91, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(138, 154, 91, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: white;
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+
+        .price-tag {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .price-tag strong {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-mockup {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            padding: 2rem;
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-mockup:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+        }
+
+        .mockup-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mockup-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border);
+        }
+
+        .mockup-dot:nth-child(1) { background: #ef4444; }
+        .mockup-dot:nth-child(2) { background: #f59e0b; }
+        .mockup-dot:nth-child(3) { background: #10b981; }
+
+        .mockup-content {
+            background: var(--accent-light);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .mockup-content i {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .urgency-banner {
+            background: linear-gradient(90deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-weight: 600;
+            color: #92400e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* SEZIONI GENERALI */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* PROBLEM SECTION */
+        .problem {
+            background: white;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background: var(--bg-color);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border-left: 4px solid #ef4444;
+        }
+
+        .problem-card i {
+            font-size: 2.5rem;
+            color: #ef4444;
+            margin-bottom: 1rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .problem-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* SOLUTION SECTION */
+        .solution {
+            background: linear-gradient(135deg, var(--accent-light) 0%, #ffffff 100%);
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .solution-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .solution-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .solution-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .solution-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .solution-list li i {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-top: 0.2rem;
+        }
+
+        .solution-visual {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-color);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 12px 32px rgba(138, 154, 91, 0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-icon i {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            background: linear-gradient(135deg, #f0f4e8 0%, #e8ece0 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-stars {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* PRICING */
+        .pricing {
+            background: white;
+        }
+
+        .pricing-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--accent-light) 0%, #ffffff 100%);
+            border: 3px solid var(--accent);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(138, 154, 91, 0.2);
+        }
+
+        .pricing-header {
+            margin-bottom: 2rem;
+        }
+
+        .pricing-header h3 {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+            margin: 1.5rem 0;
+        }
+
+        .pricing-price .original {
+            font-size: 2rem;
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            margin-left: 1rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .pricing-features li i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .guarantee i {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--bg-color);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.05rem;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-features {
+                align-items: center;
+            }
+
+            .solution-content {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-price {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-container > * {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-container > *:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="ph ph-sparkle"></i>
+                    <span>Prodotto Digitale Interattivo</span>
+                </div>
+                
+                <h1>
+                    Trasforma la Tua Casa in un'Oasi di Benessere
+                    <span>Senza Stress e Senza Sprechi</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Il primo sistema interattivo che ti guida passo-passo nella creazione del tuo santuario spa domestico. Con radar sensoriale, calcolatori intelligenti e tracker personalizzati.
+                </p>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <i class="ph ph-check-circle"></i>
+                        <span>6 Capitoli Interattivi con Strumenti Funzionanti</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="ph ph-check-circle"></i>
+                        <span>Database di 80+ Prodotti Testati</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="ph ph-check-circle"></i>
+                        <span>Salvataggio Cloud dei Tuoi Progressi</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="ph ph-check-circle"></i>
+                        <span>Accesso Immediato e Vita Interi</span>
+                    </div>
+                </div>
+                
+                <div class="cta-group">
+                    <a href="https://gumroad.com/l/TUO_LINK" class="btn-primary" target="_blank">
+                        <i class="ph ph-shopping-cart"></i>
+                        Ottieni Accesso Immediato - €27
+                    </a>
+                    <a href="#cosa-include" class="btn-secondary">
+                        <i class="ph ph-info"></i>
+                        Scopri Cosa Include
+                    </a>
+                </div>
+                
+                <div class="price-tag">
+                    <strong>Offerta Lancio:</strong> Prezzo regolare €57 | Risparmi €30
+                </div>
+                
+                <div class="urgency-banner">
+                    <i class="ph ph-timer"></i>
+                    <span>Disponibile solo per le prime 50 copie a questo prezzo</span>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="hero-mockup">
+                    <img src="image/tel.png" alt="Anteprima Sanctuary Spa" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.2);">
+                    <div class="mockup-header">
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                        <div class="mockup-dot"></div>
+                    </div>
+                    <div class="mockup-content">
+                        <i class="ph ph-radar"></i>
+                        <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 0.5rem;">Radar Sensoriale</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">Valuta ogni stanza della tua casa e scopri cosa il tuo corpo sta cercando.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="problem">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ti Riconosci in Queste Situazioni?</h2>
+                <p>Trasformare casa in un rifugio di pace sembra complicato, costoso e dispersivo...</p>
+            </div>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <i class="ph ph-confused"></i>
+                    <h3>Troppa Informazione Contraddittoria</h3>
+                    <p>Leggi articoli, guardi video, ma non sai da dove iniziare. Ogni esperto dice qualcosa di diverso e finisci per non fare nulla.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <i class="ph ph-warning-circle"></i>
+                    <h3>Sprechi di Soldi in Prodotti Sbagliati</h3>
+                    <p>Compri oli essenziali, vernici, diffusori senza una guida chiara. Risultato? Prodotti inutilizzati che prendono polvere.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <i class="ph ph-clock"></i>
+                    <h3>Non Hai Tempo per Ricercare Tutto</h3>
+                    <p>Lavori, hai impegni familiari, e l'idea di passare ore a studiare aromaterapia e cromoterapia ti stressa ancora di più.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION SECTION -->
+    <section class="solution" id="cosa-include">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h3>Immagina di Avere una Mappa Chiara per Trasformare la Tua Casa</h3>
+                    <p>
+                        <strong>Sanctuary Spa Domestica</strong> non è il solito ebook che leggi una volta e dimentichi. È un <strong>sistema interattivo completo</strong> che ti accompagna passo dopo passo.
+                    </p>
+                    <p>
+                        Strumenti funzionanti, calcolatori automatici, tracker che salvano i tuoi progressi nel cloud. Tutto progettato per farti risparmiare tempo, denaro e stress.
+                    </p>
+                    
+                    <ul class="solution-list">
+                        <li>
+                            <i class="ph ph-check-circle"></i>
+                            <span><strong>Nessuna teoria inutile:</strong> Solo azioni pratiche e strumenti immediati</span>
+                        </li>
+                        <li>
+                            <i class="ph ph-check-circle"></i>
+                            <span><strong>Personalizzazione totale:</strong> Si adatta al tuo spazio, al tuo budget, ai tuoi ritmi</span>
+                        </li>
+                        <li>
+                            <i class="ph ph-check-circle"></i>
+                            <span><strong>Risultati visibili:</strong> Dalla prima settimana sentirai la differenza</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="https://marberto.gumroad.com/l/ffwar" class="btn-primary" target="_blank">
+                        <i class="ph ph-rocket-launch"></i>
+                        Inizia la Tua Trasformazione Ora
+                    </a>
+                </div>
+                
+                <div class="solution-visual">
+                    <div style="text-align: center; padding: 2rem;">
+                        <img src="image/pc.png" alt="Anteprima Sanctuary Spa" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.2);">
+                        <i class="ph ph-laptop" style="font-size: 5rem; color: var(--accent); margin-bottom: 1rem;"></i>
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1rem;">Accessibile da Qualsiasi Dispositivo</h4>
+                        <p style="color: var(--text-secondary);">Computer, tablet o smartphone. I tuoi dati ti seguono ovunque grazie al salvataggio cloud.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cosa Troverai Dentro</h2>
+                <p>6 capitoli interattivi progettati per trasformare ogni aspetto del tuo spazio</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ph ph-radar"></i>
+                    </div>
+                    <h3>1. Mappa Sensoriale & Visione</h3>
+                    <p>Radar sensoriale funzionante per valutare ogni stanza, diario dell'umore e definizione della tua visione ideale.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ph ph-eye"></i>
+                    </div>
+                    <h3>2. I 5 Sensi: Trasforma lo Spazio</h3>
+                    <p>Decluttering visivo, texture tattili, acustica e atmosfera olfattiva. Tracker 7 giorni incluso.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ph ph-palette"></i>
+                    </div>
+                    <h3>3. Psicologia del Colore</h3>
+                    <p>8 palette pronte all'uso con codici HEX/RGB/RAL, calcolatore vernice automatico e regola 60-30-10.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ph ph-drop"></i>
+                    </div>
+                    <h3>4. Aromaterapia & Oli Essenziali</h3>
+                    <p>Diario olfattivo interattivo, i 10 oli indispensabili, 15 ricette sinergiche e miscele personalizzate.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ph ph-waveform"></i>
+                    </div>
+                    <h3>5. Architettura Invisibile: Suono</h3>
+                    <p>Battiti binaurali, protocollo 7 giorni, calcolatore frequenze e jukebox sensoriale Afro-Chill.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="ph ph-shopping-bag"></i>
+                    </div>
+                    <h3>6. Database Acquisti Smart</h3>
+                    <p>80+ schede prodotto, tracker budget dinamico, filtri per categoria e guida agli acquisti consapevoli.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cosa Dicono le Prime Utilizzatrici</h2>
+                <p>Storie reali di chi ha già trasformato la propria casa</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Finalmente qualcosa di pratico! Ho usato il calcolatore vernice e ho risparmiato €200 evitando acquisti sbagliati. La mia camera da letto è ora un vero santuario."
+                    </p>
+                    <div class="testimonial-author">Giulia M.</div>
+                    <div class="testimonial-role">Milano</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Il radar sensoriale mi ha fatto capire perché mi sentivo stressata in certe stanze. Ora ho trasformato la camera da letto e dormo molto meglio. Strumenti geniali!"
+                    </p>
+                    <div class="testimonial-author">Marco R.</div>
+                    <div class="testimonial-role">Roma</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                        <i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Non è un ebook, è un'app! I tracker e i calcolatori sono geniali. Ho apprezzato tantissimo il diario olfattivo per capire quali oli funzionano davvero per me."
+                    </p>
+                    <div class="testimonial-author">Sara L.</div>
+                    <div class="testimonial-role">Torino</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Investi nel Tuo Benessere</h2>
+                <p>Un prezzo simbolico per una trasformazione che dura tutta la vita</p>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Sanctuary Spa Domestica</h3>
+                    <p style="color: var(--text-secondary);">Accesso completo e illimitato</p>
+                    
+                    <div class="pricing-price">
+                        €27
+                        <span class="original">€57</span>
+                    </div>
+                    
+                    <p style="color: var(--accent); font-weight: 600;">
+                        Risparmi €30 - Offerta Lancio
+                    </p>
+                </div>
+                
+                <ul class="pricing-features">
+                    <li>
+                        <i class="ph ph-check-circle"></i>
+                        <span>6 Capitoli Interattivi Completi</span>
+                    </li>
+                    <li>
+                        <i class="ph ph-check-circle"></i>
+                        <span>Strumenti Funzionanti (Radar, Calcolatori, Tracker)</span>
+                    </li>
+                    <li>
+                        <i class="ph ph-check-circle"></i>
+                        <span>Database di 80+ Prodotti Testati</span>
+                    </li>
+                    <li>
+                        <i class="ph ph-check-circle"></i>
+                        <span>Salvataggio Cloud dei Tuoi Dati</span>
+                    </li>
+                    <li>
+                        <i class="ph ph-check-circle"></i>
+                        <span>Accesso Immediato e Vita Interi</span>
+                    </li>
+                    <li>
+                        <i class="ph ph-check-circle"></i>
+                        <span>Aggiornamenti Futuri Inclusi</span>
+                    </li>
+                    <li>
+                        <i class="ph ph-check-circle"></i>
+                        <span>Supporto Email Prioritario</span>
+                    </li>
+                </ul>
+                
+                <a href="https://marberto.gumroad.com/l/ffwar" class="btn-primary" target="_blank" style="width: 100%; margin-bottom: 1rem;">
+                    <i class="ph ph-shopping-cart"></i>
+                    Acquista Ora su Gumroad
+                </a>
+                
+                <div class="guarantee">
+                    <i class="ph ph-shield-check"></i>
+                    <div>
+                        <strong>Garanzia 30 Giorni Soddisfatti o Rimborsati</strong><br>
+                        Se non sei soddisfatto, ti rimborsiamo il 100% senza domande.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Domande Frequenti</h2>
+                <p>Tutto quello che devi sapere prima di acquistare</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Cos'è esattamente questo prodotto?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        È un sistema digitale interattivo accessibile via web. Non è un PDF da leggere, ma una vera e propria applicazione web con strumenti funzionanti: radar sensoriale, calcolatori automatici, tracker che salvano i tuoi progressi, database prodotti filtrabili. Tutto accessibile da computer, tablet o smartphone.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Come ricevo l'accesso dopo l'acquisto?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Immediatamente dopo il pagamento su Gumroad, riceverai una email con un PDF contenente il link privato al sito e la password di accesso. Potrai iniziare a usare il sistema in meno di 2 minuti dall'acquisto.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Devo avere competenze tecniche?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Assolutamente no! Il sistema è progettato per essere intuitivo e facile da usare. Se sai usare un browser web (Chrome, Safari, Firefox), sai usare Sanctuary Spa Domestica. Ogni strumento ha istruzioni chiare e guidate.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Posso accedere da più dispositivi?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Sì! I tuoi dati vengono salvati nel cloud (grazie a Supabase). Puoi iniziare a compilare il radar sensoriale dal computer e continuare dal telefono. I tuoi progressi ti seguiranno ovunque.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Cosa succede se non mi piace?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Offriamo una garanzia di 15 giorni soddisfatti o rimborsati. Se per qualsiasi motivo non sei soddisfatto del prodotto, ti rimborsiamo il 100% dell'importo pagato, senza fare domande. Nessun rischio per te.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>È incluso il supporto?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Sì! Hai accesso al supporto email prioritario. Se hai domande, dubbi o hai bisogno di chiarimenti su qualsiasi strumento, rispondiamo entro 24-48 ore lavorative.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; text-align: center; padding: 5rem 2rem;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: white;">
+                La Tua Casa Merita di Essere un Santuario
+            </h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Non aspettare oltre. Trasforma il tuo spazio, migliora il tuo benessere, crea l'oasi che hai sempre sognato.
+            </p>
+            <a href="https://marberto.gumroad.com/l/ffwar" class="btn-primary" target="_blank" style="background: white; color: var(--accent); font-size: 1.2rem; padding: 1.5rem 3rem;">
+                <i class="ph ph-rocket-launch"></i>
+                Inizia Ora - Solo €27
+            </a>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.9;">
+                <i class="ph ph-lock-key"></i> Pagamento sicuro tramite Gumroad | Accesso immediato
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 0.5rem;">
+                <strong style="font-family: 'Playfair Display', serif; font-size: 1.2rem;">Sanctuary Spa Domestica</strong>
+            </p>
+            <p>© 2024 - Tutti i diritti riservati</p>
+            <p style="margin-top: 1rem; font-size: 0.85rem;">
+                Questo prodotto è a scopo informativo e non sostituisce pareri medici professionali. 
+                Consulta sempre un medico prima di utilizzare oli essenziali in caso di gravidanza, 
+                allattamento o condizioni mediche specifiche.
+            </p>
+        </div>
+    </footer>
+
+    <!-- SCROLL ANIMATION SCRIPT -->
+    <script>
+        // Smooth scroll per i link interni
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animazione semplice al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Osserva tutte le card
+        document.querySelectorAll('.feature-card, .testimonial-card, .problem-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
